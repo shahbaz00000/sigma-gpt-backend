@@ -15,6 +15,13 @@ app.use(cors());
 app.use("/api",authRoute);
 app.use("/api",generateContentRoute);
 
+
+// test routes
+app.get("/test",(req,es)=>{
+    console.log("hit the test routes")
+    res.json({message:"test routes is hited"})
+})
+
 // server is started on port no 3000
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
