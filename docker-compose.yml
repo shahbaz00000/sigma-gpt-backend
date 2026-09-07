@@ -1,0 +1,23 @@
+services:
+  redis:
+    image: redis:latest
+    container_name: shahbaz-aur-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
+  # mongodb:
+  #   image: mongo:latest
+  #   container_name: shahbaz-aur-mongodb
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb_data:/data
+  #   environment:
+  #     MONGO_INITDB_DATABASE: shahbaz-aur-db
+
+volumes:
+  redis_data:
+  # mongodb_data:
