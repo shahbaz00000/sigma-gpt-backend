@@ -1,19 +1,22 @@
-name: CI Pipeline  # pipe line name
-# Event when workfow trigger
+name: CI Pipeline  # pipeline name
+
+# Event when workflow triggers
 on:
   push:
     branches:
       - main
 
-build:
-  run-on: ubuntu:latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-  steps:
-   -uses: action/checkout@v4
-   -uses: action/setup-node@v4
-   with:
-    node-version:20
+    steps:
+      - uses: actions/checkout@v4
 
-   -run: npm install 
-   -run: npm run build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+      - run: npm run build
   
